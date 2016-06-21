@@ -44,7 +44,7 @@ void setup() {
   mfrc522.PCD_Init();   // Init MFRC522
   mfrc522.PCD_DumpVersionToSerial();  // Show details of PCD - MFRC522 Card Reader details
   Serial.println(F("Scan PICC to see UID, SAK, type, and data blocks..."));
-  strip.setBrightness(10);
+  strip.setBrightness(35);
   strip.begin(); // This initializes the NeoPixel library.
   strip.show();
 }
@@ -108,6 +108,34 @@ void loop() {
     //rainbow
     rainbowRing();
   }
+  if(uidString.equals(" 04 250 175 26 152 60 128")){
+    //SSB Mario
+    ssbMario();
+  }
+  if(uidString.equals(" 04 90 150 66 111 64 128")){
+    //Mario Party Mario
+    marioPartyMario();
+  }
+  if(uidString.equals(" 04 62 77 114 138 73 128")){
+    //8 bit Mario
+    bitMario();
+  }
+  if(uidString.equals(" 04 30 213 26 153 47 129")){
+    //Baymax
+    baymax();
+  }
+  if(uidString.equals(" 04 211 207 130 30 62 128")){
+    //Pikachu
+    pikachu();
+  }
+  if(uidString.equals(" 04 252 67 226 161 62 128")){
+    //Toon Link
+    toonLink();
+  }
+  if(uidString.equals(" 04 181 200 242 124 72 128")){
+    //Yarn Yoshi
+    yarnYoshi();
+  }
 
   delay(200);
 }
@@ -140,7 +168,7 @@ void colorRing(int r, int g, int b) {
 void rainbowRing() {
   
   int i = 0;
-  while(i<NUM_LEDS*4) {     
+  while(i<NUM_LEDS*2) {     
     strip.setPixelColor(i%NUM_LEDS, strip.Color(255, 255, 255)); //change RGB color value here
     strip.setPixelColor((i+1)%NUM_LEDS, strip.Color(255, 5, 180)); //change RGB color value here
     strip.setPixelColor((i+2)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
@@ -159,7 +187,176 @@ void rainbowRing() {
     strip.setPixelColor((i+15)%NUM_LEDS, strip.Color(135, 10, 215)); //change RGB color value here
     i++;
     strip.show();
-    delay(75);
+    delay(125);
+  }
+}
+
+void ssbMario(){
+   for(int i=2*(NUM_LEDS-1);i>=0;i--){
+      strip.setPixelColor((i+4)%NUM_LEDS, strip.Color(255, 255, 5));
+      strip.setPixelColor((i+3)%NUM_LEDS, strip.Color(255, 150, 0));
+      strip.setPixelColor((i+2)%NUM_LEDS, strip.Color(255, 150, 0)); //change RGB color value here
+      strip.setPixelColor((i+1)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+      strip.setPixelColor(i%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+      strip.show();
+      if(NUM_LEDS == 16) { delay(100); }
+      clearRing();
+   }
+}
+
+void clearRing(){
+  for(int i=0;i<NUM_LEDS;i++){
+      strip.setPixelColor(i, strip.Color(0, 0, 0)); //change RGB color value here
+   }
+}
+
+void marioPartyMario(){
+  int i = 0;
+  while(i<NUM_LEDS*2) {     
+    strip.setPixelColor(i%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+1)%NUM_LEDS, strip.Color(0, 0, 255)); //change RGB color value here
+    strip.setPixelColor((i+2)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+3)%NUM_LEDS, strip.Color(255, 255, 255)); //change RGB color value here
+    strip.setPixelColor((i+4)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+5)%NUM_LEDS, strip.Color(0, 0, 255)); //change RGB color value here
+    strip.setPixelColor((i+6)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+7)%NUM_LEDS, strip.Color(255, 255, 255)); //change RGB color value here
+    strip.setPixelColor((i+8)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+9)%NUM_LEDS, strip.Color(0, 0, 255)); //change RGB color value here
+    strip.setPixelColor((i+10)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+11)%NUM_LEDS, strip.Color(255, 255, 255)); //change RGB color value here
+    strip.setPixelColor((i+12)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+13)%NUM_LEDS, strip.Color(0, 0, 255)); //change RGB color value here
+    strip.setPixelColor((i+14)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+15)%NUM_LEDS, strip.Color(255, 255, 255)); //change RGB color value here
+    i++;
+    strip.show();
+    delay(125);
+  }
+}
+
+void bitMario(){
+  int i = 0;
+  while(i<NUM_LEDS*2) {     
+    strip.setPixelColor(i%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+1)%NUM_LEDS, strip.Color(0, 0, 255)); //change RGB color value here
+    strip.setPixelColor((i+2)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+3)%NUM_LEDS, strip.Color(0, 0, 255)); //change RGB color value here
+    strip.setPixelColor((i+4)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+5)%NUM_LEDS, strip.Color(0, 0, 255)); //change RGB color value here
+    strip.setPixelColor((i+6)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+7)%NUM_LEDS, strip.Color(0, 0, 255)); //change RGB color value here
+    strip.setPixelColor((i+8)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+9)%NUM_LEDS, strip.Color(0, 0, 255)); //change RGB color value here
+    strip.setPixelColor((i+10)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+11)%NUM_LEDS, strip.Color(0, 0, 255)); //change RGB color value here
+    strip.setPixelColor((i+12)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+13)%NUM_LEDS, strip.Color(0, 0, 255)); //change RGB color value here
+    strip.setPixelColor((i+14)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+15)%NUM_LEDS, strip.Color(0, 0, 255)); //change RGB color value here
+    i++;
+    strip.show();
+    delay(125);
+  }
+}
+
+void baymax(){
+    int i = 0;
+  while(i<NUM_LEDS*2) {     
+    strip.setPixelColor(i%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+1)%NUM_LEDS, strip.Color(135, 10, 215)); //change RGB color value here
+    strip.setPixelColor((i+2)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+3)%NUM_LEDS, strip.Color(135, 10, 215)); //change RGB color value here
+    strip.setPixelColor((i+4)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+5)%NUM_LEDS, strip.Color(135, 10, 215)); //change RGB color value here
+    strip.setPixelColor((i+6)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+7)%NUM_LEDS, strip.Color(135, 10, 215)); //change RGB color value here
+    strip.setPixelColor((i+8)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+9)%NUM_LEDS, strip.Color(135, 10, 215)); //change RGB color value here
+    strip.setPixelColor((i+10)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+11)%NUM_LEDS, strip.Color(135, 10, 215)); //change RGB color value here
+    strip.setPixelColor((i+12)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+13)%NUM_LEDS, strip.Color(135, 10, 215)); //change RGB color value here
+    strip.setPixelColor((i+14)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+15)%NUM_LEDS, strip.Color(135, 10, 215)); //change RGB color value here
+    i++;
+    strip.show();
+    delay(125);
+  }
+}
+
+void pikachu(){
+  int i = 0;
+  while(i<NUM_LEDS*2) {     
+    strip.setPixelColor(i%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+1)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+2)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+3)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+4)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+5)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+6)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+7)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+8)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+9)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+10)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+11)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+12)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+13)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+14)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+15)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    i++;
+    strip.show();
+    delay(125);
+  }
+}
+
+void toonLink(){
+  int i = 0;
+  while(i<NUM_LEDS*2) {     
+    strip.setPixelColor(i%NUM_LEDS, strip.Color(0, 255, 0)); //change RGB color value here
+    strip.setPixelColor((i+1)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+2)%NUM_LEDS, strip.Color(0, 255, 0)); //change RGB color value here
+    strip.setPixelColor((i+3)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+4)%NUM_LEDS, strip.Color(0, 255, 0)); //change RGB color value here
+    strip.setPixelColor((i+5)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+6)%NUM_LEDS, strip.Color(0, 255, 0)); //change RGB color value here
+    strip.setPixelColor((i+7)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+8)%NUM_LEDS, strip.Color(0, 255, 0)); //change RGB color value here
+    strip.setPixelColor((i+9)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+10)%NUM_LEDS, strip.Color(0, 255, 0)); //change RGB color value here
+    strip.setPixelColor((i+11)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+12)%NUM_LEDS, strip.Color(0, 255, 0)); //change RGB color value here
+    strip.setPixelColor((i+13)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+14)%NUM_LEDS, strip.Color(0, 255, 0)); //change RGB color value here
+    strip.setPixelColor((i+15)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    i++;
+    strip.show();
+    delay(125);
+  }
+}
+
+void yarnYoshi(){
+  int i = 0;
+  while(i<NUM_LEDS*2) {     
+    strip.setPixelColor(i%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+1)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+2)%NUM_LEDS, strip.Color(0, 255, 0)); //change RGB color value here
+    strip.setPixelColor((i+3)%NUM_LEDS, strip.Color(255, 150, 0)); //change RGB color value here
+    strip.setPixelColor((i+4)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+5)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+6)%NUM_LEDS, strip.Color(0, 255, 0)); //change RGB color value here
+    strip.setPixelColor((i+7)%NUM_LEDS, strip.Color(255, 150, 0)); //change RGB color value here
+    strip.setPixelColor((i+8)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+9)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+10)%NUM_LEDS, strip.Color(0, 255, 0)); //change RGB color value here
+    strip.setPixelColor((i+11)%NUM_LEDS, strip.Color(255, 150, 0)); //change RGB color value here
+    strip.setPixelColor((i+12)%NUM_LEDS, strip.Color(255, 0, 0)); //change RGB color value here
+    strip.setPixelColor((i+13)%NUM_LEDS, strip.Color(255, 255, 5)); //change RGB color value here
+    strip.setPixelColor((i+14)%NUM_LEDS, strip.Color(0, 255, 0)); //change RGB color value here
+    strip.setPixelColor((i+15)%NUM_LEDS, strip.Color(255, 150, 0)); //change RGB color value here
+    i++;
+    strip.show();
+    delay(125);
   }
 }
 
